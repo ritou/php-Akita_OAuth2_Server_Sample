@@ -6,8 +6,7 @@ session_start();
 $token_from_session = $_SESSION['token'];
 $_SESSION['token'] = '';
 if( !empty($token_from_session) && $token_from_session == $_POST['token'] ){
-    $_SESSION['token'] = '';
-    if( $_POST['emails'] == 'fakeuser@example.com' &&
+    if( $_POST['email'] == 'fakeuser@example.com' &&
         $_POST['password'] == 'fakepassword'
         ){
         // log in

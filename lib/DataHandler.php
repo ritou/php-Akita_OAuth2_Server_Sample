@@ -61,7 +61,7 @@ class Akita_OAuth2_Server_Sample_DataHandler
                 $authInfo->code = hash_hmac('sha256','cd'.microtime(true).mt_rand(),$params['clientId'].$params['userId']);
                 $authInfo->redirectUri = $this->_request->param['redirect_uri'];
             }
-            $authInfo->refreshToken = hash_hmac('sha256','rt'.microtime(true).mt_rand(),$params['clientId'].$params['userId']);
+            //$authInfo->refreshToken = hash_hmac('sha256','rt'.microtime(true).mt_rand(),$params['clientId'].$params['userId']);
         }
         $exp = time() + 600;
         $this->_db->setAuthInfo($authInfo, $exp);
@@ -162,5 +162,13 @@ class Akita_OAuth2_Server_Sample_DataHandler
         }else{
             return false;
         }
+    }
+
+    public function setRefreshToken( $authInfo ){
+        $authInfo->code = "";
+        $authInfo->refreshToken = hash_hmac('sha256','rt'.microtime(true).mt_rand(),$params['clientId'].$params['userId']);
+        $exp = time() + 600;
+        $this->_db->setAuthInfo($authInfo, $exp);
+        return $authInfo;
     }
 }

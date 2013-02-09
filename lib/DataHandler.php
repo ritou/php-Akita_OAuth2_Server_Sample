@@ -1,6 +1,5 @@
 <?php
 
-require_once '../php-Akita_OAuth2/src/Akita/OAuth2/Server/Util.php';
 require_once '../php-Akita_OAuth2/src/Akita/OAuth2/Server/AuthorizationHandler.php';
 require_once '../php-Akita_OAuth2/src/Akita/OAuth2/Server/GrantHandlers.php';
 require_once '../php-Akita_OAuth2/src/Akita/OAuth2/Server/ProtectedResource.php';

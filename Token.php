@@ -21,7 +21,7 @@ try{
     if(!empty($desc)){
         $res['error_description'] = $desc;
     }
-    echo Akita_OAuth2_Server_Util::jsonEncode($res);
+    echo json_encode($res);
     exit;
 }
 
@@ -29,4 +29,4 @@ header('HTTP/1.1 200 OK');
 header('Content-Type: application/json;charset=UTF-8');
 header('Cache-Control: no-store');
 header('Pragma: no-cache');
-echo Akita_OAuth2_Server_Util::jsonEncode($res);
+echo json_encode($res);
